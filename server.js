@@ -4,6 +4,12 @@ const app = express();
 let notizen = [1, 2, 3];
 let users = ["a", "b", "c"];
 
+// Middlewares
+app.use((req, res, next) => {
+  console.log(req.method, req.url);
+  next();
+});
+
 // Users lesen (GET)
 app.get("/users", (req, res) => {
   res.json(users);
